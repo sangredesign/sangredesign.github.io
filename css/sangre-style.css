@@ -1,0 +1,925 @@
+/*
+
+Main style sheet of the site. List/programs how
+things look, are dispalyed, position set, etc
+	
+*/
+ 
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400');
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+    background: #f9f9f9;
+  }
+
+
+
+  /*--
+      Setting the headers.
+      300 makes the font shrink slightly less than normal
+      while line height just specifies the amount of 
+      space used for lines. Em is a unit for the font size/height. 1em is the actual 
+      size of the font.
+
+   --*/
+  
+
+
+  h1,h2,h3,h4,h5,h6 {
+    font-weight: 300;
+    line-height: normal;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    color: #353535;
+    font-size: 2em;
+  }
+  /*--
+      Specified the text in paragraphs on how to be sized and its color.
+  
+  
+  --*/
+  p {
+    color: #757575;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 24px;
+  }
+
+
+/*--
+
+Using the imported graphics generator webkit to smooth out lines and shapes used.
+--*/
+  html{
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /*--
+   Setting the look for items with the a element tag
+
+  --*/
+
+  a {
+    color: #202020;
+    text-decoration: none !important;
+  }
+
+  /*--
+  
+  Using a redering engine that will handle 
+  inputs and button usage and other elements 
+  of a
+  
+  --*/
+
+  /*--
+   
+  Using the graphics enginge webkit again to smooth the changes in elements.
+  .5s makes it look instantaneous.
+  --*/
+  a,
+  input, button,
+  .form-control {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  /*--
+  
+  adding some style for when the user is interacting with <a> elements
+  If it is active, or hover by mouse, or element is being used the elments will show green when 
+  user interacts with.
+  
+  --*/
+
+
+  a:hover, a:active, a:focus {
+    color: #29ca8e;
+    outline: none;
+  }
+
+  /*--
+  
+  Setting the color and dimensions of the 
+  scroll bar.
+
+  --*/
+  ::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background: #202020;
+  }
+
+  .section-title {
+    padding-bottom: 40px;
+  }
+
+  section {
+    position: relative;
+    padding: 100px 0;
+  }
+
+  #contact,
+  footer {
+    background: #ffffff;
+    text-align: center;
+  }
+
+/*--
+   setting up an overaly to use at any point/any where in the site.
+   can edit colors to any specifications. Normally sent to fit the page height and width.
+
+--*/
+
+  .overlay {
+    background: #536976;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #292E49, #536976);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #292E49, #536976); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Safari 7+ */
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  /*--
+   
+    Code for button placed on the site.               
+  
+  --*/
+
+  .section-btn {
+    background: #29ca8e;
+    border: 0;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 12px 30px;
+    transition: 0.5s 0.2s;
+  }
+
+  .section-btn:hover,
+  .section-btn:focus {
+    background: #202020;
+    color: #ffffff;
+  }
+
+
+
+  /*--
+  
+  Code for the pre-loader. The pre-loader is a loading bar/circle that comes
+  up before the website loads/ or is in the process of loading. If there is internet issues for example,
+  you will see a grey circle spinning round in about the middle of the
+  page, it will simulatneously disappear as soon at the page is fully loaded
+  
+
+  --*/
+
+  .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    background: none repeat scroll 0 0 #ffffff;
+  }
+
+  .spinner {
+    border: 1px solid transparent;
+    border-radius: 3px;
+    position: relative;
+  }
+
+  .spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 45px;
+    height: 45px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 1px solid #575757;
+    border-top-color: #ffffff;
+    animation: spinner .9s linear infinite;
+  }
+
+  @-webkit-@keyframes spinner {
+    to {transform: rotate(360deg);}
+  }
+
+  @keyframes spinner {
+    to {transform: rotate(360deg);}
+  }
+
+
+
+  /*--
+   
+  Set up for the menu/navigation bar at the top of the site.              
+  
+  --*/
+  /*--
+    Creates the bar and space for it.
+  --*/
+  .custom-navbar {
+    border: none;
+    margin-bottom: 0;
+    padding: 25px 0;
+  }
+  /*--
+  
+  Sets the color of the bar, size of the fonts/letters--*/
+  .custom-navbar .navbar-brand {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: -1px;
+  }
+  /*--
+    lets the nav bar be on the top , collapsing on anythingg that is coded behind.
+  --*/
+  .top-nav-collapse {
+    background: #ffffff;
+  }
+
+  .custom-navbar .navbar-nav {
+    margin-left: 6em;
+  }
+
+  /*--
+     
+  Customizing the nav bar elements., Li is used for the list of the elements. 
+  Sets the tabs/ heading to sepcific color, and when to display the effect.
+  
+  --*/
+  .custom-navbar .nav li a {
+    font-size: 16px;
+    font-weight: normal;
+    color: #f0f0f0;
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  .custom-navbar .nav li a:hover {
+    background: transparent;
+    color: #29ca8e;
+  }
+
+  .custom-navbar .navbar-nav > li > a:hover,
+  .custom-navbar .navbar-nav > li > a:focus {
+    background-color: transparent;
+  }
+
+  .custom-navbar .nav li.active > a {
+    background-color: transparent;
+    color: #29ca8e;
+  }
+
+  .custom-navbar .navbar-toggle {
+    border: none;
+    padding-top: 10px;
+  }
+
+  .custom-navbar .navbar-toggle {
+    background-color: transparent;
+  }
+
+  .custom-navbar .navbar-toggle .icon-bar {
+    background: #29ca8e;
+    border-color: transparent;
+  }
+
+  @media(min-width:768px) {
+    .custom-navbar {
+      border-bottom: 0;
+      background: 0 0; 
+    }
+
+    .custom-navbar.top-nav-collapse {
+      background: #ffffff;
+      -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+
+    .top-nav-collapse .navbar-brand {
+      color: #252525;
+    }
+
+    .top-nav-collapse .nav li a {
+      color: #575757;
+    }
+
+    .top-nav-collapse .nav .section-btn a {
+      color: #ffffff;
+    }
+  }
+
+
+
+  /*--
+  
+  This is the styling of the home page. Sets up a background image that the
+  owner wanted to use.          
+  
+  --*/
+
+  #home {
+    background: url('../images/home-bg.jpg') no-repeat center center;
+    background-size: cover;
+    vertical-align: middle;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    padding-top: 12em;
+    text-align: center;
+  }
+
+  #home h1 {
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+
+  .home-info {
+    margin-top: 7em;
+  }
+
+  .home-info h3 {
+    color: #f0f0f0;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 10px 0;
+  }
+  
+
+
+  /*--
+      Section code for the about us page of the site.Like
+      previous, creates an #aboutus varibale that is used indetinfy the elements we want to style.
+
+  ---*/
+
+  #aboutus {
+    background: #ffffff;
+  }
+
+  #aboutus .nav-tabs {
+    border-bottom: 0;
+  }
+
+  #aboutus .nav>li>a {
+    padding: 8px 0;
+  }
+
+  #aboutus .nav-tabs>li>a {
+    color: #999999;
+    font-size: 18px;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    border-radius: 0;
+    margin-right: 35px;
+  }
+
+  #aboutus .nav-tabs>li.active>a, 
+  #aboutus .nav-tabs>li.active>a:focus, 
+  #aboutus .nav-tabs>li.active>a:hover {
+    background: transparent;
+    color: #202020;
+    border-bottom: 3px solid #29ca8e;
+  }
+
+  #aboutus .nav>li>a:focus, 
+  #aboutus .nav>li>a:hover {
+    background: transparent;
+    border-bottom: 3px solid #29ca8e;
+    color: #202020;
+  }
+
+  #aboutus .tab-content {
+    margin-top: 50px;
+  }
+  /*--
+     Sets up how the content is made to fit on the about us page.
+  --*/
+  .tab-pane-item {
+    margin: 20px 0;
+  }
+
+  .tab-pane-item h2 {
+    margin: 0 0 5px 0;
+  }
+
+  .practice-image {
+    position: absolute;
+    bottom: -24em;
+  }
+
+
+
+  /*--
+  
+   Code for the look for the gallery section. Gallery is has 2 parts,
+   first one that lists the items/products of the site, Second a section of 
+   models wearing and using the products .             
+  
+  ---*/
+
+  #gallery .col-md-4 {
+    margin: 0;
+    padding: 0;
+  }
+
+  .product-thumb {
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-thumb-up:after {
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    top: -15px;
+    right: 0;
+    left: 0;
+    content: "";
+    width: 0;
+    height: 0;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid #ffffff;
+  }
+
+  .product-thumb-down:after {
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    bottom: -15px;
+    right: 0;
+    left: 0;
+    content: "";
+    width: 0;
+    height: 0;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-top: 15px solid #ffffff;
+  }
+
+  .product-info {
+    position: relative;
+    padding: 40px;
+  }
+
+  /*--
+     Space for heading between 2 sections if need
+  --*/
+  .product-info h2 {margin: 0;}
+
+  .product-info small {
+    display: block;
+    font-size: 18px;
+    margin: 5px 0 10px 0;
+  }
+
+  .product-thumb img {
+    width: 100%;
+  }
+
+
+
+  /*--
+  
+  Gallery Slide Show , short is gss. Sets up the background for section 2.
+  And images that are seen.         
+  
+  ---*/
+
+  #gss {
+    background: #ffffff;
+  }
+
+  /*--
+     says that we will be using the full grid .
+  --*/
+  #gss .col-md-12 {
+    margin: 0;
+    padding: 0;
+  }
+
+  
+
+  .gss-info {
+    background: #202020;
+    padding: 60px;
+    height: 90vh;
+  }
+
+  .gss-info .item {
+    display: grid;
+    width: 100%;
+  }
+
+  .gss-item {
+    margin: 3px 0;
+  }
+  /*--
+  
+    Here is the implemenation of the prebuild carousel library that is used. A carousel is an object that spins in a certain
+    direction. The Owlcarousel function makes the items that we map on to in, move from right to left on its own and also
+    sets up a navigation bar at the bottom of the slides that users can interact with.
+  
+  --*/
+  .owl-carousel .owl-item img,
+  .gss-item img {
+    color: #d9d9d9;
+    display: grid;
+    vertical-align: baseline;
+  }
+
+  /*--
+  
+  Important!! Because images each come with their own dimension and pixels, some when it is placed on the site
+  the image will over lap other elements. It is important to set a width or height that fits the area that you intend
+  to use and then set the second dimension to auto, which adjusts the scaling ratio according to your first input.
+  This stops the img from looking stretched or deformed.
+
+  --*/
+
+  .owl-carousel .owl-item img,
+  .gss-item img {
+    border: 1px solid #ffffff;
+    border-radius: 10px; 
+    width: auto;
+    height: 700px;
+    margin-right: 100px;
+  }
+
+
+
+  /*--
+  
+  Pricing 
+  --*/
+
+  #about .section-title,
+  #pricing .section-title {
+    text-align: center;
+  }
+
+  #pricing .col-md-4 {
+    margin: 0;
+    padding: 0;
+  }
+
+  #pricing .col-md-4:last-child .pricing-thumb {
+    border-right: 0;
+  }
+
+  .pricing-thumb {
+    background: #ffffff;
+    border-right: 2px solid #f0f0f0;
+    padding: 20px 40px;
+  }
+
+  .pricing-title {
+    padding-bottom: 5px;
+  }
+
+  .pricing-info {
+    border-top: 2px solid #f0f0f0;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .pricing-info,
+  .pricing-bottom {
+    padding: 20px 0;
+  }
+
+  .pricing-info p {
+    font-size: 16px;
+  }
+
+  .pricing-bottom {
+    position: relative;
+  }
+
+  .pricing-bottom span {
+    font-size: 20px;
+  }
+
+  .pricing-btn {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    display: inline-block;
+  }
+
+
+
+  /*--
+  
+  styling for a contact form that, TBD if used on the page.           
+  
+  --*/
+
+  #contact-form .col-md-12,
+  #contact-form .col-md-4 {
+    padding-left: 0;
+  }
+
+  #contact-form .form-control {
+    background: transparent;
+    border: 0;
+    border-bottom: 3px solid #f0f0f0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 10px 0;
+  }
+
+  #contact-form .form-control:focus {
+    border-bottom-color: #202020;
+  }
+
+  #contact-form input {
+    height: 50px;
+  }
+
+  #contact-form input[type='submit'] {
+    background: #202020;
+    border-radius: 50px;
+    border: 0;
+    color: #ffffff;
+  }
+
+  #contact-form input[type='submit']:hover {
+    background: #29ca8e;
+    color: #ffffff;
+  }
+  
+
+  
+.online-form {
+  position: relative;
+}
+
+.online-form .form-control {
+  border-color: #f0f0f0;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 50px;
+  box-shadow: none;
+  height: 50px;
+  margin-right: 0.5em;
+  padding-left: 15px;
+}
+
+.online-form input[type="email"] {
+  width: 60%;
+}
+
+.online-form button {
+  background: #29ca8e;
+  border: 0;
+  color: #ffffff;
+  position: absolute;
+  right: 6em;
+  width: 25%;
+}
+
+.online-form button:hover {
+  background: #202020;
+  color: #ffffff;
+}
+
+  /*--
+  
+  Bottom/Footer of the page.              
+  
+  --*/
+
+  footer {
+    padding-bottom: 80px;
+  }
+
+  .copyright-text p {
+    margin: 5px;
+  }
+
+
+
+  /*--
+  
+    Styling for current popular social media icons that will like to
+    their respective platforms              
+  
+  --*/
+
+  .social-icon {
+    position: relative;
+    padding: 0;
+    margin: 0;
+  }
+
+  .social-icon li {
+    display: inline-block;
+    list-style: none;
+  }
+
+  .social-icon li a {
+    border-radius: 50px;
+    color: #202020;
+    font-size: 15px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    margin: 5px 5px 5px 0;
+  }
+
+  .social-icon li a:hover {
+    background: #536976;
+    color: #ffffff;
+  }
+
+/*-- 
+
+    Code for a online form that may/maynot be impletented . Sets up a form on the page for 
+    user to send a message directly to the site/companys owner from the web page.
+
+
+--*/
+
+  /*--
+  
+   Responsive styles.             
+  
+  --*/
+
+  @media only screen and (max-width: 1200px) {
+
+    .custom-navbar .navbar-nav {
+      margin-left: 3em;
+    }
+
+    .home-info {
+      margin-top: 0;
+    }
+  }
+
+
+  @media only screen and (max-width: 992px) {
+
+    section {
+      padding: 60px 0;
+    }
+
+    .custom-navbar .navbar-nav {
+      margin-left: 0;
+    }
+
+    .custom-navbar .nav li a {
+      font-size: 14px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    #aboutus .nav-tabs>li>a {
+      font-size: 16px;
+      margin-right: 20px;
+    }
+
+    .practice-image {
+      bottom: -24em;
+    }
+
+    .pricing-thumb {
+      margin-bottom: 30px;
+    }
+
+    footer {
+      padding-bottom: 40px;
+    }
+  }
+
+
+  @media screen and (max-width: 767px) {
+
+    .section-title {
+      padding-bottom: 20px;
+    }
+
+    .custom-navbar {
+      background: #ffffff;
+      -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .custom-navbar .nav li a {
+      line-height: normal;
+      padding: 5px;
+    }
+
+    .custom-navbar .navbar-brand,
+    .top-nav-collapse .navbar-brand {
+      color: #202020;
+      font-weight: normal;
+    }
+
+    .custom-navbar .nav li a,
+    .top-nav-collapse .nav li a {
+      color: #656565;
+    }
+
+    .practice-image {
+      position: relative;
+      bottom: 0;
+    }
+
+    #about .col-md-4:nth-child(3n) .product-thumb {
+      display: flex;
+      -webkit-box-orient: vertical;
+      flex-direction: column-reverse;
+      -webkit-flex-direction: column-reverse;
+      -ms-flex-direction: column-reverse;
+    }
+
+    .product-thumb-down:after {
+      top: -15px;
+      bottom: inherit;
+      border-top: inherit;
+      border-bottom: 15px solid #ffffff;
+    }
+
+    .gss-image,
+    .gss-info {
+      height: 85vh;
+    }
+
+    .gss-info {
+      padding: 30px;
+    }
+  }
+
+
+  @media screen and (max-width: 480px) {
+
+    .online-form input[type="email"],
+    .online-form .form-control {
+      width: 85%;
+    }
+
+    .online-form .form-control {
+      display: block;
+      margin: 20px auto;
+    }
+
+    .online-form button {
+      position: relative;
+      right: 0;
+    }
+
+    .gss-image,
+    .gss-info {
+      height: 65vh;
+    }
+  }
